@@ -9,6 +9,15 @@ const kPrimaryCardColor = Color(0xFFCCCCCC);
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
 const kTextLightColor = Color.fromRGBO(237, 237, 237, 1);
+const kPrimaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      kPrimaryColor,
+      kPrimaryColor,
+      kPrimaryColor,
+      kPrimaryColor,
+    ]);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
@@ -53,3 +62,6 @@ vertical({double size}) => getProportionateScreenHeight(size);
 height({double size}) => getProportionateScreenHeight(size);
 top({double size}) => getProportionateScreenHeight(size);
 bottom({double size}) => getProportionateScreenHeight(size);
+
+const placeholder =
+    "Free Download News SVG vector file in monocolor and multicolor type for Sketch or Illustrator from News Vectors svg vector collection. News Vectors SVG vector illustration graphic art design format.";

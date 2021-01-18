@@ -13,9 +13,7 @@ class NewsCard extends StatelessWidget {
     this.route,
     this.title,
     this.subTitle,
-    this.iconData,
-    this.iconColor,
-    this.backgroundColor,
+    this.iconImage,
   }) : super(key: key);
 
   final Color color;
@@ -24,9 +22,7 @@ class NewsCard extends StatelessWidget {
   final String route;
   final String title;
   final String subTitle;
-  final IconData iconData;
-  final Color iconColor;
-  final Color backgroundColor;
+  final String iconImage;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +34,13 @@ class NewsCard extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(1.0, 1.0),
+                    blurRadius: 5,
+                    color: Colors.grey[200],
+                    spreadRadius: 0.05)
+              ],
               color: color ?? Colors.grey[200]),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontal(size: 15)),
@@ -46,18 +49,14 @@ class NewsCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(25),
                   child: NewsCardIcon(
-                    iconData: iconData,
-                    iconColor: iconColor,
-                    backgroundColor: backgroundColor,
+                    image: iconImage,
                   ),
                 ),
                 SpacerWidth(size: 12),
                 Expanded(
                   child: NewsCardContent(
-                    title: title ?? 'Campagne de sensibilisation',
-                    subTitle: subTitle ??
-                        "Free Download News SVG vector file in monocolor and multicolor type for Sketch or Illustrator from News Vectors svg vector collection. News Vectors SVG vector illustration graphic art design format.",
-                  ),
+                      title: title ?? 'Campagne de sensibilisation',
+                      subTitle: subTitle ?? placeholder),
                 )
               ],
             ),

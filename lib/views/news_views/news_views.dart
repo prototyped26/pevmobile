@@ -23,15 +23,17 @@ class _NewsViewsState extends State<NewsViews>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: AppBar(
-            leading: IconButton(
-              icon: Icon(
-                SimpleLineIcons.arrow_left,
+            leading: Padding(
+              padding: EdgeInsets.only(left: left(size: 18)),
+              child: IconButton(
+                icon: Icon(
+                  SimpleLineIcons.arrow_left,
+                ),
+                onPressed: () => Navigator.of(context).pop(),
               ),
-              onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
               'Actualités',

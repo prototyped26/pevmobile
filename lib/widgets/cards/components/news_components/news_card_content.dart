@@ -47,25 +47,28 @@ class NewsCardContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
-                  child: Card(
-                elevation: 0,
-                color: kPrimaryColor.withOpacity(0.8),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25)),
-                child: SizedBox(
-                  height: 18,
-                  width: 80,
-                  child: Center(
-                    child: Text(
-                      'Le PEV',
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 9),
-                    ),
-                  ),
+                  child: Container(
+                width: 80,
+                height: 17,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: kPrimaryColor.withOpacity(0.2),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(1.0, 1.0),
+                          blurRadius: 7,
+                          color: Colors.grey[200],
+                          spreadRadius: 1)
+                    ],
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text(
+                  'Le PEV',
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: fontSize(size: 9)),
                 ),
               )),
               Flexible(child: Text('17/01/2021'))
