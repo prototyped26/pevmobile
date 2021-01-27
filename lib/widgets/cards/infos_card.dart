@@ -22,52 +22,56 @@ class InfosMenuCard2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height ?? 150,
-      width: width ?? 170,
-      margin: EdgeInsets.only(top: top(size: 25)),
-      padding: EdgeInsets.only(left: 25),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), gradient: kPrimaryGradient),
-      child: Column(
-        children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                image ?? 'assets/images/news.png',
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: () => Navigator.of(context).pushNamed(route ?? ''),
+      child: Container(
+        height: height ?? 150,
+        width: width ?? 170,
+        margin: EdgeInsets.only(top: top(size: 25)),
+        padding: EdgeInsets.only(left: 25),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            gradient: kPrimaryGradient),
+        child: Column(
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  image ?? 'assets/images/news.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          SpacerHeight(size: 13),
-          Padding(
-            padding: EdgeInsets.only(right: 45),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title ?? 'Actualités',
-                  softWrap: true,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: fontSize(size: 18)),
-                ),
-                Text(
-                  subTitle ?? 'En savoir plus',
-                  softWrap: true,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: fontSize(size: 14)),
-                ),
-              ],
+            SpacerHeight(size: 13),
+            Padding(
+              padding: EdgeInsets.only(right: 45),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title ?? 'Actualités',
+                    softWrap: true,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: fontSize(size: 18)),
+                  ),
+                  Text(
+                    subTitle ?? 'En savoir plus',
+                    softWrap: true,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: fontSize(size: 14)),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SpacerHeight(size: 2),
-        ],
+            SpacerHeight(size: 2),
+          ],
+        ),
       ),
     );
   }

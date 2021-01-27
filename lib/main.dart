@@ -18,7 +18,6 @@ class PEV extends StatelessWidget {
           Brightness.light, //status bar brightness//status barIcon Brightness
     ));
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: theme(),
       debugShowCheckedModeBanner: false,
       initialRoute: '/',

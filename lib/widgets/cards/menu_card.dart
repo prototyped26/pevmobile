@@ -18,10 +18,18 @@ class MenuCard extends StatelessWidget {
     this.iconColor,
     this.backgroundColor,
     this.route,
+    this.width,
+    this.titleColor,
+    this.subTitleColor,
+    this.iHeight,
+    this.iWidth,
+    this.mImage,
+    this.radius,
   }) : super(key: key);
 
   final Color color;
   final double height;
+  final double width;
   final String mTag;
   final String title;
   final String subTitle;
@@ -29,6 +37,13 @@ class MenuCard extends StatelessWidget {
   final Color iconColor;
   final Color backgroundColor;
   final String route;
+
+  final Color titleColor;
+  final Color subTitleColor;
+  final double iHeight;
+  final double iWidth;
+  final String mImage;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +53,7 @@ class MenuCard extends StatelessWidget {
         tag: mTag ?? 'hero',
         child: Container(
           height: height ?? 80,
-          width: 300,
+          width: width ?? 300,
           margin: EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
@@ -53,12 +68,17 @@ class MenuCard extends StatelessWidget {
                     iconData: iconData,
                     backgroundColor: backgroundColor,
                     iconColor: iconColor,
+                    height: iHeight,
+                    width: iWidth,
+                    image: mImage,
                   ),
                 ),
                 SpacerWidth(size: 12),
                 MenuCardContent(
                   title: title,
                   subTitle: subTitle,
+                  titleColor: titleColor,
+                  subTitleColor: subTitleColor,
                 ),
               ],
             ),

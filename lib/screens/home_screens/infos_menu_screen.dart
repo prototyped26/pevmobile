@@ -58,6 +58,7 @@ class InfosMenuScreen extends StatelessWidget {
                         child: InfosMenuCard2(
                       title: 'Vaccins',
                       image: 'assets/images/vaccin.png',
+                      route: '/infos/vaccins',
                     )),
                   ],
                 ),

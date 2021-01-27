@@ -8,22 +8,36 @@ class MenuCardIcon extends StatelessWidget {
     this.iconData,
     this.backgroundColor,
     this.iconColor,
+    this.image,
+    this.height,
+    this.width,
+    this.radius,
   }) : super(key: key);
 
   final IconData iconData;
   final Color backgroundColor;
   final Color iconColor;
+  final String image;
+  final double height;
+  final double width;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: 50,
-      color: backgroundColor ?? kPrimaryColor.withOpacity(0.15),
-      child: Icon(
-        iconData ?? SimpleLineIcons.location_pin,
-        color: iconColor ?? kPrimaryColor,
-      ),
-    );
+    return (image == null)
+        ? Container(
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+                color: backgroundColor ?? kPrimaryColor.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(radius ?? 25)),
+            child: Icon(
+              iconData ?? SimpleLineIcons.location_pin,
+              color: iconColor ?? kPrimaryColor,
+            ))
+        : CircleAvatar(
+            radius: 40,
+            backgroundColor: Colors.white,
+            backgroundImage: AssetImage(image));
   }
 }

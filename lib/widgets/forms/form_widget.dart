@@ -55,7 +55,7 @@ class BTextFormField extends StatelessWidget {
       padding: EdgeInsets.symmetric(
           horizontal: horizontal(size: 20), vertical: vertical(size: 8)),
       child: TextFormField(
-        style: TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 18, color: kFormFillTextColor),
         validator: validator,
         controller: controller,
         readOnly: this.readOnly,
@@ -78,7 +78,7 @@ class BTextFormField extends StatelessWidget {
           hintText: hintText,
           counterText: "",
           hintStyle: TextStyle(fontSize: getProportionateScreenWidth(17)),
-          floatingLabelBehavior: FloatingLabelBehavior.always,
+          //floatingLabelBehavior: FloatingLabelBehavior.always,
         ),
       ),
     );

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:pevmobile/helpers/constants.dart';
 import 'package:pevmobile/helpers/spacer.dart';
-import 'package:pevmobile/widgets/cards/news_card.dart';
 import 'package:pevmobile/widgets/forms/form_widget.dart';
+import 'package:pevmobile/widgets/tabbars/tab_menu.dart';
 
 class NewsViews extends StatefulWidget {
   @override
@@ -45,82 +45,22 @@ class _NewsViewsState extends State<NewsViews>
         ),
         body: SizedBox(
           width: double.infinity,
-          child: Hero(
-              tag: 'heroes',
-              child: Container(
-                margin: EdgeInsets.only(top: top(size: 40)),
-                child: Column(
-                  children: [
-                    BTextFormField(
-                      hintText: 'Recherchez',
-                      suffixIcon: Icon(Feather.search),
-                    ),
-                    SpacerHeight(
-                      size: 25,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: horizontal(size: 15)),
-                      child: TabBar(
-                        controller: mTabController,
-                        labelColor: kPrimaryColor,
-                        indicatorColor: kPrimaryColor,
-                        indicator: UnderlineTabIndicator(
-                          borderSide:
-                              BorderSide(color: kPrimaryColor, width: 3.5),
-                          insets: EdgeInsets.symmetric(horizontal: 26),
-                        ),
-                        labelStyle: TextStyle(
-                          fontSize: fontSize(size: 15),
-                          fontFamily: 'Kufam',
-                          fontWeight: FontWeight.w500,
-                        ),
-                        unselectedLabelColor: kTextColor,
-                        tabs: [
-                          Tab(
-                            text: 'À la Une',
-                          ),
-                          Tab(
-                            text: 'Le PEV',
-                          ),
-                          Tab(
-                            text: 'Autres',
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        controller: mTabController,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: top(size: 10)),
-                            child: ListView(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: horizontal(size: 18)),
-                              shrinkWrap: true,
-                              children: [
-                                ...List.generate(
-                                    10,
-                                    (index) => NewsCard(
-                                          mTag: 'sage$index',
-                                          color: Colors.white,
-                                        ))
-                              ],
-                            ),
-                          ),
-                          Container(
-                            child: Text(' view2'),
-                          ),
-                          Container(
-                            child: Text(' view3'),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+          child: Container(
+            margin: EdgeInsets.only(top: top(size: 40)),
+            child: Column(
+              children: [
+                BTextFormField(
+                  hintText: 'Recherchez',
+                  suffixIcon: Icon(Feather.search),
                 ),
-              )),
+                SpacerHeight(
+                  size: 25,
+                ),
+                TabMenu(mTabController: mTabController),
+                TabMenuView(mTabController: mTabController)
+              ],
+            ),
+          ),
         ));
   }
 }

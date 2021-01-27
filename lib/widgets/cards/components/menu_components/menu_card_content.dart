@@ -6,9 +6,13 @@ class MenuCardContent extends StatelessWidget {
     Key key,
     this.title,
     this.subTitle,
+    this.titleColor,
+    this.subTitleColor,
   }) : super(key: key);
   final String title;
   final String subTitle;
+  final Color titleColor;
+  final Color subTitleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +27,14 @@ class MenuCardContent extends StatelessWidget {
             style: TextStyle(
                 fontSize: fontSize(size: 16),
                 letterSpacing: 0.2,
-                color: kPrimaryBbnColor,
+                color: titleColor ?? kPrimaryBbnColor,
                 fontWeight: FontWeight.w500),
           ),
           Text(
             subTitle ?? 'Formez-vous',
             softWrap: true,
-            style: TextStyle(letterSpacing: 0.2),
+            style: TextStyle(
+                letterSpacing: 0.2, color: subTitleColor ?? kTextColor),
           ),
         ],
       ),

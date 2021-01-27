@@ -27,38 +27,44 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => Navigator.of(context).pushNamed(route ?? ''),
-        child: Container(
-          height: height ?? 120,
-          width: width(size: 330),
-          margin: EdgeInsets.symmetric(vertical: 8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(1.0, 1.0),
-                    blurRadius: 5,
-                    color: Colors.grey[200],
-                    spreadRadius: 0.05)
-              ],
-              color: color ?? Colors.grey[200]),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontal(size: 15)),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: NewsCardIcon(
-                    image: iconImage,
+        onTap: () => Navigator.of(context)
+            .pushNamed(route ?? '', arguments: {'tag': mTag}),
+        child: Hero(
+          tag: mTag ?? 'heroes',
+          transitionOnUserGestures: true,
+          child: Container(
+            height: height ?? 120,
+            width: width(size: 330),
+            margin: EdgeInsets.symmetric(vertical: 8),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(1.0, 1.0),
+                      blurRadius: 5,
+                      color: Colors.black45.withOpacity(0.15),
+                      spreadRadius: 0.05)
+                ],
+                color: color ?? Colors.grey[200]),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontal(size: 15)),
+              child: Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(25),
+                    child: NewsCardIcon(
+                      image: iconImage,
+                    ),
                   ),
-                ),
-                SpacerWidth(size: 12),
-                Expanded(
-                  child: NewsCardContent(
-                      title: title ?? 'Campagne de sensibilisation',
-                      subTitle: subTitle ?? placeholder),
-                )
-              ],
+                  SpacerWidth(size: 12),
+                  Expanded(
+                    child: NewsCardContent(
+                        title: title ??
+                            'Campagne de sensibilisation en milieu scolaire',
+                        subTitle: subTitle ?? placeholder),
+                  )
+                ],
+              ),
             ),
           ),
         ));

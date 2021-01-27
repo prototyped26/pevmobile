@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    fontFamily: "Kufam",
+    fontFamily: GoogleFonts.poppins().fontFamily,
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
     primaryColor: kPrimaryColor,
@@ -32,8 +33,8 @@ InputDecorationTheme inputDecorationTheme() {
     // if we are define our floatingLabelBehavior in our theme then it's not applayed
     // floatingLabelBehavior: FloatingLabelBehavior.always,
     contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-    labelStyle: TextStyle(color: kPrimaryColor),
-    fillColor: kTextLightColor.withOpacity(0.3),
+    labelStyle: TextStyle(color: Color(0xFF9298a9)),
+    fillColor: kTextColor.withOpacity(0.1),
     filled: true,
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
@@ -62,14 +63,13 @@ AppBarTheme appBarTheme() {
   return AppBarTheme(
     color: Colors.white,
     elevation: 0,
-    brightness: Brightness.dark,
     iconTheme: IconThemeData(color: kPrimaryBbnColor, size: 18),
     textTheme: TextTheme(
       headline6: TextStyle(
           color: kPrimaryBbnColor,
           fontWeight: FontWeight.w500,
           fontSize: 18,
-          fontFamily: 'Kufam'),
+          fontFamily: GoogleFonts.poppins().fontFamily),
     ),
   );
 }

@@ -29,7 +29,7 @@ class HomeScreenMenu extends StatelessWidget {
                 ),
               ),
               Opacity(
-                opacity: 0.15,
+                opacity: 0.4,
                 child: Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -40,7 +40,7 @@ class HomeScreenMenu extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                  filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                   child: Column(
                     children: [
                       Container(
@@ -49,44 +49,30 @@ class HomeScreenMenu extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Column(
                           children: [
-                            Text(
-                              'PEV',
-                              softWrap: true,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: fontSize(size: 17),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: horizontal(size: 130)),
-                              child: Text(
-                                'Programme Élargi de Vaccination',
-                                textAlign: TextAlign.center,
-                                softWrap: true,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: fontSize(size: 12),
-                                    fontWeight: FontWeight.w500),
-                              ),
+                            Image.asset(
+                              'assets/logo/pev.jpg',
+                              width: 130,
+                              height: 70,
                             ),
                           ],
                         ),
                       ),
                       Expanded(
                         child: Container(
-                            margin: EdgeInsets.only(top: top(size: 350)),
+                            margin: EdgeInsets.only(top: top(size: 250)),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 MenuCard(
                                   mTag: 'cartes',
+                                  iconData: SimpleLineIcons.location_pin,
                                 ),
                                 MenuCard(
                                   mTag: 'vaccins',
                                   iconData: Icons.child_care,
                                   title: 'Vaccinations',
                                   subTitle: 'Faites un tracking',
+                                  route: '/vaccins/users-login',
                                 ),
                                 MenuCard(
                                   mTag: 'infos',

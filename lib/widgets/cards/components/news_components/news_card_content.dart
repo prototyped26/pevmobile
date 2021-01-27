@@ -21,6 +21,7 @@ class NewsCardContent extends StatelessWidget {
           child: Text(
             title ?? 'Carte de FOSA',
             softWrap: true,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 fontSize: fontSize(size: 15),
                 letterSpacing: 0.3,
